@@ -21,22 +21,24 @@
  * Given "pwwkew", the answer is "wke", with the length of 3. Note that the
  * answer must be a substring, "pwke" is a subsequence and not a substring.
  */
-#include <string.h>
 #include <stdio.h>
+#include <memory.h>
 int lengthOfLongestSubstring(char* s) {
-    int set[256] = {0},len = 0,i = 1,tmp = 0,chr = (int)*s,start = 0;
-    while(chr != 0){
-        if(set[chr] != 0)
-            start = set[chr];
-        tmp = i - start;
-        len = tmp > len ? tmp : len;
-        set[chr] = i;
-        chr = (int)(*(s + (i++)));
-    }
-    return len;
-}
-
-int main(){
-    char* str = "abba";
-    printf("%d\n",lengthOfLongestSubstring(str));
+  if(*s == '\0')
+    return 0;
+  int i = 0,j = 0,len = 0,max = 0;
+  int set[128];
+  for(; j < 128; j++)
+    set[j] = -1;
+  while(*(s + i) != '\0') {
+    int index = *(s + i);
+    if(set[index] != -1 && set[index] >= i - len)
+      len = i - set[index] - 1;
+    set[index] = i;
+    len++;
+    if(len > max)
+      max = len;
+    i++;
+  }
+  return max;
 }

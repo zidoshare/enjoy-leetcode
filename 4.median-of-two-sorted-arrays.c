@@ -38,9 +38,7 @@
  * 
  */
 
-#include <memory.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <malloc.h>
 double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Size){
   int* arr = (int *)malloc(sizeof(int) * (nums1Size + nums2Size));
   int index = 0,size = nums1Size + nums2Size,i = 0,j = 0;
@@ -50,16 +48,10 @@ double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Si
     }else{
       arr[index] = nums2[j++];
     }
-    printf("%d\n",arr[index]);
   }
   if(index % 2 == 0){
     return (arr[index / 2 - 1] + arr[index / 2]) / 2.0;
   }else{
     return arr[(index) / 2];
   }
-}
-
-int main(){
-  int nums1[] = {1,3},nums2[] = {2};
-  printf("%lf\n",findMedianSortedArrays(nums1,2,nums2,1));
 }

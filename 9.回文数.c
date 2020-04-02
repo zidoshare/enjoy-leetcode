@@ -54,13 +54,6 @@ bool isPalindrome(int x)
     {
         return true;
     }
-    else if (x > 9 && x < 100)
-    {
-        if (x / 10 == x % 10)
-        {
-            return true;
-        }
-    }
     else if (x % 10 == 0)
     {
         return false;

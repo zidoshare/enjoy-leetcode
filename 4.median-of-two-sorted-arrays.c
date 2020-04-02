@@ -39,19 +39,27 @@
  */
 
 #include <malloc.h>
-double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Size){
-  int* arr = (int *)malloc(sizeof(int) * (nums1Size + nums2Size));
-  int index = 0,size = nums1Size + nums2Size,i = 0,j = 0;
-  for(;index < size;index++){
-    if(j >= nums2Size || (i < nums1Size && nums1[i] < nums2[j])){
+double findMedianSortedArrays(int *nums1, int nums1Size, int *nums2, int nums2Size)
+{
+  int *arr = (int *)malloc(sizeof(int) * (nums1Size + nums2Size));
+  int index = 0, size = nums1Size + nums2Size, i = 0, j = 0;
+  for (; index < size; index++)
+  {
+    if (j >= nums2Size || (i < nums1Size && nums1[i] < nums2[j]))
+    {
       arr[index] = nums1[i++];
-    }else{
+    }
+    else
+    {
       arr[index] = nums2[j++];
     }
   }
-  if(index % 2 == 0){
+  if (index % 2 == 0)
+  {
     return (arr[index / 2 - 1] + arr[index / 2]) / 2.0;
-  }else{
+  }
+  else
+  {
     return arr[(index) / 2];
   }
 }

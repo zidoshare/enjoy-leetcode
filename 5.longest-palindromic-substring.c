@@ -33,39 +33,52 @@
 #include <string.h>
 #include <malloc.h>
 
-char * longestPalindrome(char * s){
+char *longestPalindrome(char *s)
+{
   int i = 0;
-  if(*s == '\0'){
+  if (*s == '\0')
+  {
     return "";
   }
-  int max = 1,start = 0;
-  for(;*(s + i) != '\0';i++) {
-    int j = 1,len = 1;
-    for(; i - j >= 0 && *(s + i + j) != '\0'; j++) {
-      if(*(s + i - j) == *(s + i + j)){
+  int max = 1, start = 0;
+  for (; *(s + i) != '\0'; i++)
+  {
+    int j = 1, len = 1;
+    for (; i - j >= 0 && *(s + i + j) != '\0'; j++)
+    {
+      if (*(s + i - j) == *(s + i + j))
+      {
         len += 2;
-      }else{
+      }
+      else
+      {
         break;
       }
     }
-    if(len > max){
+    if (len > max)
+    {
       max = len;
       start = i - j + 1;
     }
-    for(len = 0,j = 0;i - j >= 0 && *(s + i + j + 1) != '\0'; j++) {
-      if(*(s + i - j) == *(s + i + j + 1)){
+    for (len = 0, j = 0; i - j >= 0 && *(s + i + j + 1) != '\0'; j++)
+    {
+      if (*(s + i - j) == *(s + i + j + 1))
+      {
         len += 2;
-      }else{
+      }
+      else
+      {
         break;
       }
     }
-    if(len > max) {
+    if (len > max)
+    {
       max = len;
       start = i - j + 1;
     }
   }
-  char* result = (char*)malloc(sizeof(char) * (max + 1));
+  char *result = (char *)malloc(sizeof(char) * (max + 1));
   *(result + max) = '\0';
-  strncpy(result,s + start,max);
+  strncpy(result, s + start, max);
   return result;
 }

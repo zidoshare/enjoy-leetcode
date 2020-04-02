@@ -42,16 +42,17 @@
  * 
  */
 
-
-int reverse(int x){
+int reverse(int x)
+{
   long result = 0;
-  while(x){
+  while (x)
+  {
     result = result * 10 + x % 10;
     x = x / 10;
   }
-  if(result > 0x7fffffff || result < (signed int)0x80000000){
+  if (result > 0x7fffffff || result < (signed int)0x80000000)
+  {
     return 0;
   }
   return result;
 }
-

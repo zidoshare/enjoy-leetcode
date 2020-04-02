@@ -23,20 +23,22 @@
  */
 #include <stdio.h>
 #include <memory.h>
-int lengthOfLongestSubstring(char* s) {
-  if(*s == '\0')
+int lengthOfLongestSubstring(char *s)
+{
+  if (*s == '\0')
     return 0;
-  int i = 0,j = 0,len = 0,max = 0;
+  int i = 0, j = 0, len = 0, max = 0;
   int set[128];
-  for(; j < 128; j++)
+  for (; j < 128; j++)
     set[j] = -1;
-  while(*(s + i) != '\0') {
+  while (*(s + i) != '\0')
+  {
     int index = *(s + i);
-    if(set[index] != -1 && set[index] >= i - len)
+    if (set[index] != -1 && set[index] >= i - len)
       len = i - set[index] - 1;
     set[index] = i;
     len++;
-    if(len > max)
+    if (len > max)
       max = len;
     i++;
   }

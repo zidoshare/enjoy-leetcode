@@ -48,7 +48,6 @@ int comp(const void *a, const void *b)
 
 int threeSumClosest(int *nums, int numsSize, int target)
 {
-    int result[3];
     int min_diff = 0x7fffffff;
     qsort(nums, numsSize, sizeof(int), comp);
     int cur = 0;

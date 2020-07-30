@@ -41,7 +41,7 @@
  * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().
  */
 
-#define NULL 0
+#include <stdlib.h>
 int comp(const void *a, const void *b)
 {
     return *(int *)a - *(int *)b;

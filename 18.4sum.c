@@ -36,7 +36,6 @@
 
 // @lc code=start
 
-
 /**
  * Return an array of arrays of size *returnSize.
  * The sizes of the arrays are returned as *returnColumnSizes array.
@@ -48,9 +47,9 @@ int comp(const void *a, const void *b)
 {
   return *(int *)a - *(int *)b;
 }
-int** fourSum(int* nums, int numsSize, int target, int* returnSize, int** returnColumnSizes)
+int **fourSum(int *nums, int numsSize, int target, int *returnSize, int **returnColumnSizes)
 {
-  if(numsSize < 4) 
+  if (numsSize < 4)
   {
     return NULL;
   }
@@ -59,28 +58,27 @@ int** fourSum(int* nums, int numsSize, int target, int* returnSize, int** return
   *returnColumnSizes = (int *)malloc(numsSize * sizeof(int *));
   int low;
   int high;
-  qsort(nums,numsSize,sizeof(nums[0]),comp);
+  qsort(nums, numsSize, sizeof(nums[0]), comp);
 
-  for(int i = 0;i < numsSize; i++)
+  for (int i = 0; i < numsSize; i++)
   {
-    if(nums[i] > 0)
+    if (nums[i] > 0)
     {
       break;
     }
 
-    if(i > 0 && nums[i] == nums[i - 1])
+    if (i > 0 && nums[i] == nums[i - 1])
     {
       continue;
     }
-    
+
     low = i + 1;
     high = numsSize - 1;
 
-    while(low < high){
-
+    while (low < high)
+    {
     }
   }
 }
-
 
 // @lc code=end

@@ -17,7 +17,7 @@ struct Node* addChild(struct Node* parent){
   struct Node* node = (struct Node*)malloc(sizeof(struct Node));
   node->flag = 0;
   node->score = 0;
-    
+
   node->parent = parent;
   parent->child = node;
   node->child = NULL;
@@ -36,7 +36,7 @@ int scoreOfParentheses(char* s) {
         current->score = 1;
       }
       current->flag = 1;
-      
+
       while(current->parent != NULL && current->flag == 1){
         if(current->parent == root){
           current->parent->score += current->score;
